@@ -41,7 +41,9 @@ typedef NSString * _Nullable (^SVGKParserIdentifierResolver)(SVGElement * _Nonnu
 
 @interface SVGKParseResult : NSObject
 
-@property(nonatomic, strong) NSMutableArray* _Nullable warnings, * _Nullable errorsRecoverable, * _Nullable errorsFatal;
+@property(nonatomic, strong) NSMutableArray* _Nullable warnings;
+@property(nonatomic, strong) NSMutableArray* _Nullable errorsRecoverable;
+@property(nonatomic, strong) NSMutableArray* _Nullable errorsFatal;
 @property(nonatomic) BOOL libXMLFailed;
 /** 0.0 = no parsing done yet, 0.x = partially parsed, 1.0 = parse complete (no fatal errors) */
 @property(nonatomic) double parseProgressFractionApproximate;
