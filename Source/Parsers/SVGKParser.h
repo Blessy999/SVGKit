@@ -92,14 +92,14 @@
  It is not instantaneous, but kicks in as soon as more data is read from
  the raw bytes-stream, so it's pretty quick
  */
-+(void) cancelParser:(SVGKParser*) parserToCancel;
++(void) cancelParser:(SVGKParser* _Nonnull) parserToCancel;;
 
 /**
  Creates an SVGKParser, and adds the "standard" extensions for parsing
  a standard SVG file; you can then add any of your own custom extensions
  before triggering the parse with e.g. "parseSynchronously"
  */
-+(SVGKParser *) newParserWithDefaultSVGKParserExtensions:(SVGKSource *)source;
++(SVGKParser * _Nullable) newParserWithDefaultSVGKParserExtensions:(SVGKSource * _Nonnull)source;
 
 /**
  Delegates to [self newParserWithDefaultSVGKParserExtensions:], and then auto-starts
@@ -108,7 +108,7 @@
  
  Returns the fully-parsed result, including any errors
  */
-+ (SVGKParseResult*) parseSourceUsingDefaultSVGKParser:(SVGKSource*) source;
++ (SVGKParseResult* _Nullable) parseSourceUsingDefaultSVGKParser:(SVGKSource* _Nonnull) source;
 
 /**
  This MIGHT now be safe to call multiple times on different threads
@@ -116,21 +116,21 @@
  that break libxml in horrible ways, see the source code to this class
  for more info)
  */
-- (SVGKParseResult*) parseSynchronously;
+- (SVGKParseResult* _Nullable) parseSynchronously;
 
-+(NSDictionary *) NSDictionaryFromCSSAttributes: (Attr*) styleAttribute;
++(NSDictionary * _Nullable) NSDictionaryFromCSSAttributes: (Attr* _Nullable) styleAttribute;
 
 
 
 #pragma mark - OLD - POTENTIALLY DELETE THESE ONCE THEY'VE ALL BEEN CHECKED AND CONVERTED
 
-- (id)initWithSource:(SVGKSource *)doc;
+- (nullable instancetype)initWithSource:(SVGKSource * _Nonnull)doc;
 
 /*! Adds the default SVG-tag parsers (everything in the SVG namespace); you should always use these, unless you
  are massively customizing SVGKit's parser! */
 -(void) addDefaultSVGParserExtensions;
 /*! NB: you ALMOST ALWAYS want to first call "addDefaultSVGParserExtensions" */
-- (void) addParserExtension:(NSObject<SVGKParserExtension>*) extension;
+- (void) addParserExtension:(NSObject<SVGKParserExtension>* _Nonnull) extension;
 
 
 

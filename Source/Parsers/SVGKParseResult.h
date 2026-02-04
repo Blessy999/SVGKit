@@ -41,15 +41,15 @@ typedef NSString *_Nullable (^SVGKParserIdentifierResolver)(SVGElement* element)
 
 @interface SVGKParseResult : NSObject
 
-@property(nonatomic, strong) NSMutableArray* warnings, * errorsRecoverable, * errorsFatal;
+@property(nonatomic, strong) NSMutableArray* _Nullable warnings, * _Nullable errorsRecoverable, * _Nullable errorsFatal;
 @property(nonatomic) BOOL libXMLFailed;
 /** 0.0 = no parsing done yet, 0.x = partially parsed, 1.0 = parse complete (no fatal errors) */
 @property(nonatomic) double parseProgressFractionApproximate;
 
-@property(nonatomic,strong) SVGSVGElement* rootOfSVGTree; /**< both are needed, see spec */
-@property(nonatomic,strong) SVGDocument* parsedDocument; /**< both are needed, see spec */
+@property(nonatomic,strong) SVGSVGElement* _Nullable rootOfSVGTree;/**< both are needed, see spec */
+@property(nonatomic,strong) SVGDocument* _Nullable parsedDocument; /**< both are needed, see spec */
 
-@property(nonatomic,strong) NSMutableDictionary* namespacesEncountered; /**< maps "prefix" to "uri" */
+@property(nonatomic,strong) NSMutableDictionary* _Nullable namespacesEncountered; /**< maps "prefix" to "uri" */
 
 /*! Optional block to customize identifier generation for SVGElement instances during parsing
  * 
@@ -60,17 +60,17 @@ typedef NSString *_Nullable (^SVGKParserIdentifierResolver)(SVGElement* element)
  */
 @property(nonatomic,copy,nullable) SVGKParserIdentifierResolver identifierResolver;
 
--(void) addSourceError:(NSError*) fatalError;
--(void) addParseWarning:(NSError*) warning;
--(void) addParseErrorRecoverable:(NSError*) recoverableError;
--(void) addParseErrorFatal:(NSError*) fatalError;
--(void) addSAXError:(NSError*) saxError;
+-(void) addSourceError:(NSError* _Nonnull) fatalError;
+-(void) addParseWarning:(NSError* _Nonnull) warning;
+-(void) addParseErrorRecoverable:(NSError* _Nonnull) recoverableError;
+-(void) addParseErrorFatal:(NSError* _Nonnull) fatalError;
+-(void) addSAXError:(NSError* _Nonnull) saxError;
 
 #if ENABLE_PARSER_EXTENSIONS_CUSTOM_DATA
 /*! Each SVGKParserExtension can optionally save extra data here */
-@property(nonatomic,retain) NSMutableDictionary* extensionsData;
+@property(nonatomic,retain) NSMutableDictionary* _Nullable extensionsData;
 
--(NSMutableDictionary*) dictionaryForParserExtension:(NSObject<SVGKParserExtension>*) extension;
+-(NSMutableDictionary* _Nullable) dictionaryForParserExtension:(NSObject<SVGKParserExtension>* _Nonnull) extension;
 #endif
 
 @end
