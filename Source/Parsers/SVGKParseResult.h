@@ -37,7 +37,7 @@
  * @param element The SVGElement being processed
  * @return The custom identifier to use, or nil to use the default 'id' attribute
  */
-typedef NSString *_Nullable (^SVGKParserIdentifierResolver)(SVGElement* element);
+typedef NSString * _Nullable (^SVGKParserIdentifierResolver)(SVGElement * _Nonnull element);
 
 @interface SVGKParseResult : NSObject
 
