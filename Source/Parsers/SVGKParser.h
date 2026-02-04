@@ -92,7 +92,7 @@
  It is not instantaneous, but kicks in as soon as more data is read from
  the raw bytes-stream, so it's pretty quick
  */
-+(void) cancelParser:(SVGKParser* _Nonnull) parserToCancel;;
++(void) cancelParser:(SVGKParser* _Nonnull) parserToCancel;
 
 /**
  Creates an SVGKParser, and adds the "standard" extensions for parsing
