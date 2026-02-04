@@ -54,18 +54,16 @@
 
 @interface SVGKParser : NSObject {
   @private
-	NSMutableString *_storedChars;
-	//NSMutableArray *_elementStack;
-	NSMutableArray * _stackOfParserExtensions;
-	Node * _parentOfCurrentNode;
+    NSMutableString * _Nullable _storedChars;
+     NSMutableArray * _Nullable _stackOfParserExtensions;
+     Node * _Nullable _parentOfCurrentNode;
 }
 
-@property(nonatomic,strong,readonly) SVGKSource* source;
-@property(nonatomic,strong,readonly) NSMutableArray* externalStylesheets;
-@property(nonatomic,strong,readonly) SVGKParseResult* currentParseRun;
-
-@property(nonatomic,strong) NSMutableArray* parserExtensions;
-@property(nonatomic,strong) NSMutableDictionary* parserKnownNamespaces; /**< maps "uri" to "array of parser-extensions" */
+@property(nonatomic,strong,readonly) SVGKSource* _Nullable source;
+@property(nonatomic,strong,readonly) NSMutableArray* _Nullable externalStylesheets;
+@property(nonatomic,strong,readonly) SVGKParseResult* _Nullable currentParseRun;
+@property(nonatomic,strong) NSMutableArray* _Nullable parserExtensions;
+@property(nonatomic,strong) NSMutableDictionary* _Nullable parserKnownNamespaces; /**< maps "uri" to "array of parser-extensions" */
 
 /*! Optional block to customize identifier generation for SVGElement instances
  * 
